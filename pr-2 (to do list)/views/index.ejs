@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <script>
+        function editUser(id, name, phone) {
+            document.getElementById('edit-id').value = id;
+            document.getElementById('edit-name').value = name;
+            document.getElementById('edit-phone').value = phone;
+            document.getElementById('edit-form').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div align="center">
+        <h1>Add User</h1>
+        <form action="/insertRecord" method="post">
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td>Name :-</td>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>Phone :-</td>
+                    <td><input type="text" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+
+        <h1>Edit User</h1>
+        <form id="edit-form" action="/updateRecord" method="post" style="display:none;">
+            <input type="hidden" id="edit-id" name="id">
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td>Name :-</td>
+                    <td><input type="text" id="edit-name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>Phone :-</td>
+                    <td><input type="text" id="edit-phone" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Update"></td>
+                </tr>
+            </table>
+        </form>
+
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% all.forEach((user, id) => { %>
+                    <tr>
+                        <td>
+                            <%= id + 1 %>
+                        </td>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.phone %>
+                        </td>
+                        <td>
+                            <form action="/deleteRecord" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= user.id %>">
+                                <input type="submit" value="Delete">
+                            </form>
+                            <button onclick="editUser('<%= user.id %>', '<%= user.name %>', '<%= user.phone %>')">Edit</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+    
