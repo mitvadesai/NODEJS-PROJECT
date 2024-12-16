@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/frontend/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/frontend/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/frontend/css/style.css">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .blog-form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('assets/frontend/img/hero/Industries_hero.jpg') no-repeat center center / cover;
+        }
+
+        .blog-form-wrapper {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .blog-form-wrapper h2 {
+            text-align: center;
+            color: #295684;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #295684;
+            outline: none;
+            box-shadow: 0 0 5px rgba(41, 86, 132, 0.5);
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-group input[type="file"] {
+            padding: 0.4rem;
+        }
+
+        .btn-submit {
+            background-color: #295684;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4b71;
+        }
+
+        .view-blog-link {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #e74c3c;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .view-blog-link:hover {
+            color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog-form-container">
+        <div class="blog-form-wrapper">
+            <h2>Add Your Blog</h2>
+            <form action="/addblog" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Blog Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter blog title" required>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Blog Description</label>
+                    <textarea id="desc" name="desc" placeholder="Write a brief description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Upload Blog Image</label>
+                    <input type="file" id="image" name="image" required>
+                </div>
+                <button type="submit" class="btn-submit">Add Blog</button>
+                <a href="/viewblog" class="view-blog-link">View Blog</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

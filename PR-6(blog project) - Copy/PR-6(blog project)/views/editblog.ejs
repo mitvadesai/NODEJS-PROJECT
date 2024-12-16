@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Edit Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: url('assets/frontend/img/hero/Industries_hero.jpg') no-repeat center center / cover;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .form-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: -80px;
+        }
+
+        .form-container .form-control {
+            border-radius: 8px;
+        }
+
+        .form-container textarea {
+            resize: none;
+        }
+
+        .btn-primary {
+            background-color: #295684;
+            border-color: #295684;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e4370;
+            border-color: #1e4370;
+        }
+
+        .form-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Edit Your Blog</h1>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container">
+        <div class="form-container mx-auto">
+            <form action="/up" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="editid" value="<%= single.id %>">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Blog Title</label>
+                    <input type="text" id="title" name="title" value="<%= single.title %>" class="form-control"
+                        placeholder="Enter the blog title">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Blog Description</label>
+                    <textarea id="description" name="desc" rows="4" class="form-control"
+                        placeholder="Write a brief description"><%= single.desc %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Blog Image</label>
+                    <input type="file" id="image" name="image" class="form-control">
+                    <img src="<%= single.image %>" alt="Current blog image">
+                </div>
+                <div class="submit-btn">
+                    <button type="submit" class="btn btn-primary w-100">Update Blog</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

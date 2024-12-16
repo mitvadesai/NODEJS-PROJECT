@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Business Brokerage Blog Section">
+    <title>Blog Section</title>
+    <link rel="icon" href="assets/frontend/img/favicon.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: "Arial", sans-serif;
+        }
+
+        .header-area {
+            background: #295684;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        .header-area h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-btn {
+            background-color: #ffc107;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .header-btn:hover {
+            background-color: #e0a800;
+            color: #fff;
+        }
+
+        .blog-item {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: #fff;
+        }
+
+        .blog-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            font-size: 20px;
+            color: #295684;
+        }
+
+        .blog-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .blog-content .btn {
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .btn-edit {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .btn-edit:hover {
+            background-color: #138496;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-area">
+            <div class="container d-flex justify-content-between align-items-center">
+                <h2>Blog Section</h2>
+                <a href="addblogpage" class="btn header-btn">Add New Blog</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="blog_area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <% users.map((val, index) => { const { title, desc, image } = val; %>
+                <div class="col-md-4">
+                    <div class="blog-item">
+                        <img src="<%= image %>" alt="<%= title %>" class="img-fluid">
+                        <div class="blog-content">
+                            <h3><%= title %></h3>
+                            <p><%= desc %></p>
+                            <div class="d-flex justify-content-between">
+                                <a href="/edit?id=<%= val.id %>" class="btn btn-edit btn-sm">Edit</a>
+                                <a href="/delete?id=<%= val.id %>" class="btn btn-delete btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 bg-light">
+        <p>&copy; 2024 Business Brokerage. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
