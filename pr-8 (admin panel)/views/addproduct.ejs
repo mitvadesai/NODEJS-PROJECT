@@ -47,7 +47,7 @@
                                                 <select name="category"  id="category"  onchange="categoryRecord()" class="form-control">
                                                     <option value="">---select category---</option>
                                                     <% category.map((cat)=>{ %>
-                                                        <option value="<%= cat._id %>"><%= cat.category_name %></option>
+                                                        <option value="<%= cat._id %>"><%= cat?.category_name %></option>
                                                     <% }) %>
                                                 </select>
                                             </div> 
