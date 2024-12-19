@@ -1,7 +1,7 @@
 
 const CategoryModel = require('../models/CategoryModel');
 const SubcategoryModel = require('../models/subcategoryModel');
-const ExsubcategoryModel = require('../models/exsubcategoryModel');
+const ExsubcategoryModel = require('../models/exsubcategoryModel ');
 const ProductModel = require('../models/ProductModel');
 
 const fs = require('fs')

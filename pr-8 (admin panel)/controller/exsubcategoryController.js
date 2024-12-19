@@ -1,7 +1,7 @@
 
 const CategoryModel = require('../models/CategoryModel');
 const SubcategoryModel = require('../models/subcategoryModel');
-const ExsubcategoryModel = require('../models/exsubcategoryModel');
+const ExsubcategoryModel = require('../models/exsubcategoryModel ');
 
 const viewexsubcategoryPage = async (req,res) =>{
     try {
